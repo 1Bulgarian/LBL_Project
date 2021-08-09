@@ -56,7 +56,7 @@ namespace LBL
                 .UseAuthentication()
                 .UseAuthorization()
                 .UseEndpoints(endpoints =>
-                {
+                { 
                     endpoints.MapDefaultControllerRoute();
                     endpoints.MapRazorPages();
                 });
