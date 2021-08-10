@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LBL.Migrations
 {
     [DbContext(typeof(LBLDbContext))]
-    [Migration("20210809193043_RegionAndTeamTables")]
+    [Migration("20210809220033_RegionAndTeamTables")]
     partial class RegionAndTeamTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,6 +32,15 @@ namespace LBL.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LogoUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Organizer")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ShortName")
                         .IsRequired()

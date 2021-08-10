@@ -16,6 +16,13 @@
         [MaxLength(RegionShortNameMaxLength)]
         public string ShortName { get; set; }
 
+        public string Location { get; set; }
+
+        public string LogoUrl { get; set; }
+
+        [Required]
+        public string Organizer { get; set; }
+
         public IEnumerable<Team> Teams { get; init; } = new List<Team>();
     }
 }

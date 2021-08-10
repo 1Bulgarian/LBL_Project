@@ -1,0 +1,47 @@
+﻿@model LBL.Models.Regions.AddRegionFormModel
+
+@{
+    ViewData["Title"] = "Add Region";
+}
+
+
+<div class="row">
+    <div class="col-lg-6 offset-lg-3 col-sm-12 col-xl-6">
+        <h2 class="text-center">Add a region</h2>
+        <form method="post">
+
+            <div class="form-group">
+                <label asp-for="FullName"></label>
+                <input asp-for="FullName" class="form-control" placeholder="e.g. League of Legends European Championship">
+                <span asp-validation-for="FullName" class="small text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ShortName"></label>
+                <input asp-for="ShortName" class="form-control" placeholder="e.g. LEC">
+                <span asp-validation-for="ShortName" class="small text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Location"></label>
+                <input asp-for="Location" class="form-control" placeholder="e.g. Europe">
+                <span asp-validation-for="Location" class="small text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LogoURL"></label>
+                <input asp-for="LogoURL" class="form-control" placeholder="Your URL here..">
+                <span asp-validation-for="LogoURL" class="small text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Organizer"></label>
+                <input asp-for="Organizer" class="form-control" placeholder="e.g. Riot Games">
+                <span asp-validation-for="Organizer" class="small text-danger"></span>
+            </div>
+
+            <input class="btn btn-primary float-right" type="submit" value="Save" />
+        </form>
+
+    </div>
+</div>

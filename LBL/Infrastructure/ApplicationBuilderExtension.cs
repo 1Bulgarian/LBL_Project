@@ -32,9 +32,27 @@
 
             data.Regions.AddRange(new[]
             {
-                new Region {FullName="League of Legends European Championship", ShortName="LEC"},
-                new Region {FullName="League of Legends Champions Korea", ShortName="LCK"},
-                new Region {FullName="League of Legends Professional League", ShortName="LPL"},
+                new Region {
+                    FullName="League of Legends European Championship", 
+                    ShortName="LEC",
+                    Location="Europe",
+                    LogoUrl="",
+                    Organizer="Riot Games"
+                },
+                new Region {
+                    FullName="League of Legends Champions Korea",
+                    ShortName="LCK",
+                    Location="Korea",
+                    LogoUrl="",
+                    Organizer="Riot Games"
+                },
+                new Region {
+                    FullName="League of Legends Professional League",
+                    ShortName="LPL",
+                    Location="China",
+                    LogoUrl="",
+                    Organizer="TJ Esports"
+                },
             });
 
             data.SaveChanges();

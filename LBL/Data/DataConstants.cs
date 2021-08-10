@@ -18,5 +18,14 @@
 
         public const int TeamTagNameMaxLength = 5;
         public const int TeamTagNameMinLength = 2;
+
+
+
+        public const int ArticleMinimumLength = 10;
+        public const int ArticleTitleMinimumLength = 10;
+
+        public const int CategoryNameMinimumLength = 3;
+
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿namespace LBL.Data.Models
 {
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using static DataConstants;
 
@@ -27,6 +28,8 @@
         public int RegionId { get; set; }
 
         public Region Region { get; set; }
+
+        public IEnumerable<StaffMember> Members { get; init; } = new List<StaffMember>();
 
     }
 }

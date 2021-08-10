@@ -31,6 +31,15 @@ namespace LBL.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LogoUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Organizer")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ShortName")
                         .IsRequired()
                         .HasMaxLength(5)
