@@ -2,6 +2,7 @@
 {
     public class DataConstants
     {
+        //Region and Team
         public const int RegionFullNameMaxLength = 50;
         public const int RegionFullNameMinLength = 1;
 
@@ -20,12 +21,29 @@
         public const int TeamTagNameMinLength = 2;
 
 
-
+        //Article stuff
         public const int ArticleMinimumLength = 10;
         public const int ArticleTitleMinimumLength = 10;
 
         public const int CategoryNameMinimumLength = 3;
 
 
+
+        //Players (NOT Users)
+        public const int IGNMinimumLength = 1;
+        public const int IGNMaximumLength = 40;
+
+        public const int PositionMinimumLength = 2;
+        public const int PositionMaximumLength = 30;
+
+        //Players AND Users
+        public const int FirstNameMinimumLength = 2;
+        public const int FirstNameMaximumLength = 30;
+
+        public const int LastNameMinimumLength = 3;
+        public const int LastNameMaximumLength = 60;
+
+        public const int CountryOfBirthMinimumLength = 4;
+        public const int CountryOfBirthMaximumLength = 60;
     }
 }

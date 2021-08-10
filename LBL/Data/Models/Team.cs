@@ -1,6 +1,7 @@
 ﻿namespace LBL.Data.Models
 {
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using static DataConstants;
 
@@ -24,6 +25,9 @@
         [Required]
         [MaxLength(DescriptionMaxLength)]
         public string Description { get; set; }
+
+        [DefaultValue("Tier 1")]
+        public string Tier { get; set; }
 
         public int RegionId { get; set; }
 

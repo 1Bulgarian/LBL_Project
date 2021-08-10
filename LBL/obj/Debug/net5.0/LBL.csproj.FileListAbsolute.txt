@@ -395,3 +395,11 @@ D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\LBL.genruntimeconfig.cache
 D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Teams\Add.cshtml.g.cs
 D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Articles\Add.cshtml.g.cs
 D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Regions\Add.cshtml.g.cs
+D:\Programming\LBL_Project\LBL\LBL\bin\Debug\net5.0\System.Web.Mvc.dll
+D:\Programming\LBL_Project\LBL\LBL\bin\Debug\net5.0\System.Web.Razor.dll
+D:\Programming\LBL_Project\LBL\LBL\bin\Debug\net5.0\System.Web.Helpers.dll
+D:\Programming\LBL_Project\LBL\LBL\bin\Debug\net5.0\System.Web.WebPages.Deployment.dll
+D:\Programming\LBL_Project\LBL\LBL\bin\Debug\net5.0\System.Web.WebPages.Razor.dll
+D:\Programming\LBL_Project\LBL\LBL\bin\Debug\net5.0\System.Web.WebPages.dll
+D:\Programming\LBL_Project\LBL\LBL\bin\Debug\net5.0\Microsoft.Web.Infrastructure.dll
+D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Players\Add.cshtml.g.cs

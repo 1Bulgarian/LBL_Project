@@ -19,6 +19,8 @@
 
         public DbSet<Category> Categories { get; init; }
 
+        public DbSet<StaffMember> StaffMembers { get; init; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -33,6 +35,12 @@
                 .HasOne(r => r.Category)
                 .WithMany(r => r.Articles)
                 .HasForeignKey(r => r.CategoryId)
+                .OnDelete(DeleteBehavior.Restrict);
+            builder
+                .Entity<StaffMember>()
+                .HasOne(c => c.Team)
+                .WithMany(c => c.Members)
+                .HasForeignKey(c => c.TeamId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             base.OnModelCreating(builder);
