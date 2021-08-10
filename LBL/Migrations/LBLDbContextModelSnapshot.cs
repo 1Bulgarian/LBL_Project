@@ -90,6 +90,9 @@ namespace LBL.Migrations
                         .HasMaxLength(5)
                         .HasColumnType("nvarchar(5)");
 
+                    b.Property<int>("Tier")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("Regions");

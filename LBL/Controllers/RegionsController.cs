@@ -30,7 +30,8 @@
                 ShortName = region.ShortName,
                 Location = region.Location,
                 LogoUrl = region.LogoURL,
-                Organizer = region.Organizer
+                Organizer = region.Organizer,
+                Tier = 1
             };
 
             this.data.Regions.Add(regionData);

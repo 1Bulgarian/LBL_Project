@@ -23,6 +23,8 @@
         [Required]
         public string Organizer { get; set; }
 
+        public int Tier { get; set; }
+
         public IEnumerable<Team> Teams { get; init; } = new List<Team>();
     }
 }

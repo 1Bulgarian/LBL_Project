@@ -18,6 +18,24 @@
         {
             CategoriesRegions = this.GetRegionCategories()
         });
+
+        public IActionResult All()
+        {
+            var teams = this.data
+                .Teams
+                .OrderBy(c=>c.TeamTagName)
+                .Select(c => new TeamListViewModel
+                {
+                    Id = c.Id,
+                    Tag = c.TeamTagName,
+                    FullName = c.TeamFullName,
+                    LogoURL = c.LogoURL,
+                    Region = c.Region.ShortName
+                })
+                .ToList();
+
+            return View(teams);
+        }
               
         [HttpPost]
         public IActionResult Add(AddTeamFormModel team)

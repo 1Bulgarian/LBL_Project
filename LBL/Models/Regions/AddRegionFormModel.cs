@@ -1,6 +1,7 @@
 ﻿namespace LBL.Models.Regions
 {
     using LBL.Data;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using static Data.DataConstants;
 
@@ -24,6 +25,9 @@
         [Url]
         [Display(Name = "Region's Logo")]
         public string LogoURL { get; set; }
+
+        [DefaultValue(1)]
+        public int Logo { get; set; }
 
         [Required]
         [StringLength(40, MinimumLength = 3)]
