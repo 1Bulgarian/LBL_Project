@@ -404,3 +404,4 @@ D:\Programming\LBL_Project\LBL\LBL\bin\Debug\net5.0\System.Web.WebPages.dll
 D:\Programming\LBL_Project\LBL\LBL\bin\Debug\net5.0\Microsoft.Web.Infrastructure.dll
 D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Players\Add.cshtml.g.cs
 D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Teams\All.cshtml.g.cs
+D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Users\Register.cshtml.g.cs

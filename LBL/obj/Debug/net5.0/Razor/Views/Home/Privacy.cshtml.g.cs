@@ -28,13 +28,27 @@ using LBL.Models;
 #nullable disable
 #nullable restore
 #line 3 "D:\Programming\LBL_Project\LBL\LBL\Views\_ViewImports.cshtml"
+using LBL.Models.Users;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "D:\Programming\LBL_Project\LBL\LBL\Views\_ViewImports.cshtml"
 using LBL.Models.Teams;
 
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "D:\Programming\LBL_Project\LBL\LBL\Views\_ViewImports.cshtml"
+using LBL.Data;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d8ddb6bffa5a9b264bf8f89038bf03c234083fd3", @"/Views/Home/Privacy.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8e30617f47c3043f5b304024ec488cbe09863bc4", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"cbf590d3c36d003e5c5e5c394d525a3c3c8cfc35", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Privacy : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

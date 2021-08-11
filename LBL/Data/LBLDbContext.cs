@@ -4,7 +4,7 @@
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
 
-    public class LBLDbContext : IdentityDbContext
+    public class LBLDbContext : IdentityDbContext<User>
     {
         public LBLDbContext(DbContextOptions<LBLDbContext> options)
             : base(options)
