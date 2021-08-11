@@ -64,7 +64,7 @@
             this.data.Teams.Add(teamData);
             this.data.SaveChanges();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction(nameof(All));
         }
 
         private IEnumerable<TeamRegionViewModel> GetRegionCategories()
