@@ -1,0 +1,36 @@
+﻿@model IEnumerable<LBL.Data.Models.TeamListViewModel>
+
+@{
+    ViewData["Title"] = "All teams";
+}
+
+<div class="row justify-content-center">
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown button
+        </button>
+        <div class="dropdown-menu">
+            <h6 class="dropdown-header">Dropdown header</h6>
+            <a class="dropdown-item" href="#"><img src="LBL_logo2.png" />Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+        </div>
+    </div>
+
+</div>
+<div class="row justify-content-center">
+
+    @foreach (var team in Model)
+    {
+        <a asp-controller="Teams" asp-action="Details" asp-route-id="@team.Id">
+            <div class="m-2" style="background: linear-gradient(45deg,#1ea8c1, #952c07); ">
+                <div class="card" style="width: 18rem; height:21rem">
+                    <img class="card-img-top" src="@team.LogoURL" alt="[@team.Tag] @team.FullName">
+                    <div class="card-body text-center align-bottom">
+                        <a class="card-text">[@team.Tag] @team.FullName</a>
+                    </div>
+                </div>
+            </div>
+        </a>
+    }
+
+</div>
