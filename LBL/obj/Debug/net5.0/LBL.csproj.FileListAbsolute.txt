@@ -811,3 +811,4 @@ D:\Programming\LBL_Project\LBL_Project-2482f4a9a7b8690d2b175e1b01dc3be762032701\
 D:\Programming\LBL_Project\LBL_Project-2482f4a9a7b8690d2b175e1b01dc3be762032701\LBL\obj\Debug\net5.0\LBL.genruntimeconfig.cache
 D:\Programming\LBL_Project\LBL_Project-2482f4a9a7b8690d2b175e1b01dc3be762032701\LBL\obj\Debug\net5.0\Razor\Views\Teams\All.cshtml.g.cs
 D:\Programming\LBL_Project\LBL_Project-2482f4a9a7b8690d2b175e1b01dc3be762032701\LBL\obj\Debug\net5.0\Razor\Views\Podcast\LBL.cshtml.g.cs
+D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Podcast\LBL.cshtml.g.cs
