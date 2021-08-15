@@ -40,6 +40,16 @@ namespace LBL
                 {
                     options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
                 });
+
+            services.AddAuthentication()
+                .AddGoogle(options =>
+                {
+                    IConfigurationSection googleAuthNSection =
+                        Configuration.GetSection("Authentication: Google");
+
+                    options.ClientId = "510030604332-blu65fit77t5girt0cl7aiu83kbqdo3g.apps.googleusercontent.com";
+                    options.ClientSecret = "jBiP2QkF8lFc9QYFXiqLN-Tk";
+                });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
