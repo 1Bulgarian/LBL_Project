@@ -866,3 +866,8 @@ D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_
 D:\Programming\LBL_Project\LBL\LBL\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.Facebook.dll
 D:\Programming\LBL_Project\LBL\LBL\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.Google.dll
 D:\Programming\LBL_Project\LBL\LBL\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.Twitter.dll
+D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Articles\All.cshtml.g.cs
+D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\ExternalLogins.cshtml.g.cs
+D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\_ManageNav.cshtml.g.cs
+D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\_ViewImports.cshtml.g.cs
+D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\ExternalLogin.cshtml.g.cs

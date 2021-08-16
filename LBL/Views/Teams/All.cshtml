@@ -21,12 +21,14 @@
 
     @foreach (var team in Model)
     {
-        <a asp-controller="Teams" asp-action="Details" asp-route-id="@team.Id">
-            <div class="m-2" style="background: linear-gradient(45deg,#1ea8c1, #952c07); ">
-                <div class="card" style="width: 18rem; height:21rem">
-                    <img class="card-img-top" src="@team.LogoURL" alt="[@team.Tag] @team.FullName">
-                    <div class="card-body text-center align-bottom">
-                        <a class="card-text"><b>[@team.Tag]</b> @team.FullName</a>
+        <a asp-controller="Teams" asp-action="Details" asp-route-id="@team.Id" style="text-decoration:none; color:black;">
+            <div class="row m-2" style="background: linear-gradient(45deg,#1ea8c1, #952c07); ">
+                <div class="card" style="width: 18rem; height:22rem">
+                    <div style="height:85%">
+                        <img class="card-img-top mw-50" src="@team.LogoURL" alt="[@team.Tag] @team.FullName">
+                    </div>
+                    <div class="card-body align-text-bottom text-center" style="height:15%">
+                        <p class="card-text "><b>[@team.Tag]</b> @team.FullName</p>
                     </div>
                 </div>
             </div>

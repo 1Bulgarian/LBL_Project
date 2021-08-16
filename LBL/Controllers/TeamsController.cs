@@ -58,7 +58,8 @@
                 TeamTagName = team.TeamTagName,
                 Description = team.Description,
                 LogoURL = team.Logo,
-                RegionId = team.RegionId
+                RegionId = team.RegionId,
+                Tier = team.Tier
             };
 
             this.data.Teams.Add(teamData);

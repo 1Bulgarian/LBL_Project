@@ -35,6 +35,7 @@ namespace LBL
                 })
                 .AddEntityFrameworkStores<LBLDbContext>();
 
+
             services
                 .AddControllersWithViews(options =>
                 {

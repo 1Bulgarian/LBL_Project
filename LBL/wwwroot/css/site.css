@@ -61,7 +61,6 @@ html {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
-    background: linear-gradient(45deg,#1ea8c1, #952c07);
 }
 .footer {
   position: absolute;

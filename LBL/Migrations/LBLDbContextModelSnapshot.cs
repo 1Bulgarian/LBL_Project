@@ -16,7 +16,7 @@ namespace LBL.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.7")
+                .HasAnnotation("ProductVersion", "5.0.8")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("LBL.Data.Models.Article", b =>
@@ -26,11 +26,18 @@ namespace LBL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AuthorId")
-                        .HasColumnType("int");
+                    b.Property<string>("AuthorId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Text")
                         .IsRequired()
