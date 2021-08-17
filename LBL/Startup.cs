@@ -2,6 +2,7 @@ namespace LBL
 {
     using LBL.Data;
     using LBL.Infrastructure;
+    using LBL.Services.Statistics;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
@@ -41,6 +42,8 @@ namespace LBL
                 {
                     options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
                 });
+
+            services.AddTransient<IStatisticsService, StatisticsService>();
 
             services.AddAuthentication()
                 .AddGoogle(options =>
