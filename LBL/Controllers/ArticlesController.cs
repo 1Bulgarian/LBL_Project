@@ -57,7 +57,7 @@
                 this.ModelState.AddModelError(nameof(article.CategoryId), "This region doesn't exist");
             }
 
-            if (ModelState.Count < 4)
+            if (!ModelState.IsValid)
             {
                 article.Categories = this.GetArticleCategories();
 

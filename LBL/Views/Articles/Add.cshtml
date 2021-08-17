@@ -13,14 +13,8 @@
 
             <div class="form-group">
                 <label asp-for="Title"></label>
-                <input asp-for="Title" class="form-control" placeholder="e.g. Unicorns of Love">
+                <input asp-for="Title" class="form-control" placeholder="e.g. Why is eSports fun?">
                 <span asp-validation-for="Title" class="small text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Text"></label>
-                <input asp-for="Text" class="form-control" placeholder="e.g. UOL">
-                <span asp-validation-for="Text" class="small text-danger"></span>
             </div>
 
             <div class="form-group">
@@ -30,18 +24,31 @@
             </div>
 
             <div class="form-group">
-                <label asp-for="CategoryId"></label>
+                <label asp-for="CategoryId">Category</label>
                 <select asp-for="CategoryId" class="form-control">
                     @foreach (var cat in Model.Categories)
                     {
-                        <option value="@cat.CategoryId">@cat.Name</option>
+                    <option value="@cat.CategoryId">@cat.Name</option>
                     }
                 </select>
             </div>
 
             <div class="form-group">
-                <label asp-for="Description"></label>
-                <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                <label asp-for="Text"></label>
+                <textarea asp-for="Text" class="form-control" placeholder="e.g. My amazing article is about..." rows="3"></textarea>
+                <span asp-validation-for="Text" class="small text-danger"></span>
+            </div>
+
+            <script>
+                function charcountupdate(str) {
+                    var lng = str.length;
+                    document.getElementById("charcount").innerHTML = lng + ' out of 175 characters';
+                }
+            </script>
+
+            <div class="form-group">
+                <label asp-for="Description"></label> (<span id="charcount">0 out of 175 characters</span>)
+                <textarea asp-for="Description" class="form-control" rows="3" onkeyup="charcountupdate(this.value)"></textarea>
             </div>
             <span asp-validation-for="Description" class="small text-danger"></span>
 

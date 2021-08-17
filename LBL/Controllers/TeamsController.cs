@@ -45,7 +45,7 @@
                 this.ModelState.AddModelError(nameof(team.RegionId), "This region doesn't exist");
             }
 
-            if(ModelState.Count<4)
+            if(ModelState.ErrorCount>1)
             {
                 team.CategoriesRegions = this.GetRegionCategories();
 

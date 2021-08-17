@@ -25,6 +25,12 @@
         public const int ArticleMinimumLength = 10;
         public const int ArticleTitleMinimumLength = 10;
 
+        public const int DescriptionMinimumLength = 2;
+        public const int DescriptionMaximumLength = 175;
+
+        public const int ArticleMaxLength = int.MaxValue;
+        public const int ArticleMinLength = 100;
+
         public const int CategoryNameMinimumLength = 3;
 
 

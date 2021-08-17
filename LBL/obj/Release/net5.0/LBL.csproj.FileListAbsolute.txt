@@ -460,3 +460,7 @@ D:\Programming\LBL_Project\LBL\LBL\obj\Release\net5.0\Razor\Areas\Identity\Pages
 D:\Programming\LBL_Project\LBL\LBL\obj\Release\net5.0\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 D:\Programming\LBL_Project\LBL\LBL\obj\Release\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 D:\Programming\LBL_Project\LBL\LBL\obj\Release\net5.0\Razor\Views\Articles\All.cshtml.g.cs
+D:\Programming\LBL_Project\LBL\LBL\obj\Release\net5.0\Razor\Areas\Identity\Pages\Account\ExternalLogin.cshtml.g.cs
+D:\Programming\LBL_Project\LBL\LBL\obj\Release\net5.0\Razor\Areas\Identity\Pages\Account\Manage\ExternalLogins.cshtml.g.cs
+D:\Programming\LBL_Project\LBL\LBL\obj\Release\net5.0\Razor\Areas\Identity\Pages\Account\Manage\_ManageNav.cshtml.g.cs
+D:\Programming\LBL_Project\LBL\LBL\obj\Release\net5.0\Razor\Areas\Identity\Pages\Account\Manage\_ViewImports.cshtml.g.cs

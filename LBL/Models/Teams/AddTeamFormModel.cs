@@ -26,7 +26,6 @@
         [StringLength(int.MaxValue, MinimumLength =DescriptionMinLength)]
         public string Description { get; init; }
 
-        [DefaultValue("Tier 1")]
         public string Tier { get; set; }
 
         public int RegionId { get; init; }
