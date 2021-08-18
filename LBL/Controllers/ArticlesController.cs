@@ -1,5 +1,6 @@
 ﻿namespace LBL.Controllers
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using Microsoft.AspNetCore.Mvc;
@@ -13,7 +14,6 @@
     public class ArticlesController : Controller
     {
         private readonly LBLDbContext data;
-        private readonly UserManager<LBLDbContext> _userManager;
 
 
         public ArticlesController(LBLDbContext data)
@@ -25,12 +25,27 @@
             Categories = this.GetArticleCategories()
         });
 
-        public IActionResult All()
+        public IActionResult All(int OneCategory, string searchTerm)
         {
-            var articles = this.data
-                .Articles
+            var articlesQuery = this.data.Articles.AsQueryable();
+
+            if(OneCategory != 0)
+            {
+                articlesQuery = articlesQuery
+                    .Where(c => c.CategoryId== OneCategory);
+            }
+
+            if(!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                articlesQuery = articlesQuery.Where(c =>
+                    c.Title.ToLower().Contains(searchTerm.ToLower()) ||
+                    c.Description.ToLower().Contains(searchTerm.ToLower()) ||
+                    c.Category.Name.ToLower().Contains(searchTerm.ToLower()));
+            }
+
+            var articles = articlesQuery
                 .OrderByDescending(c => c.Id)
-                .Select(c => new ArticleListViewModel
+                .Select(c => new ArticleListingViewModel
                 {
                     Id = c.Id,
                     Title = c.Title,
@@ -38,11 +53,26 @@
                     Text = c.Text,
                     Image = c.Image,
                     Category = c.Category.Name,
-                    AuthorId = c.AuthorId
+                    Author = c.AuthorId
                 })
                 .ToList();
 
-            return View(articles);
+            var articleCategories = this.data
+            .Categories
+            .Select(c => new ArticleCategoriesViewModel
+            {
+                CategoryId = c.Id,
+                Name = c.Name
+            })
+            .ToList();
+
+
+            return View(new AllArticlesQueryModel
+            {
+                ManyCategories = articleCategories,
+                Articles = articles,
+                SearchTerm = searchTerm
+            });
         }
 
 
@@ -65,6 +95,7 @@
             }
 
             var UserId = User.GetId();
+
             var articleData = new Article
             {
                 Title = article.Title,
