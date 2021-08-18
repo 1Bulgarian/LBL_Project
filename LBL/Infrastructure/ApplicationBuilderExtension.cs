@@ -1,31 +1,44 @@
 ﻿namespace LBL.Infrastructure
 {
+    using System;
     using System.Linq;
+    using System.Threading.Tasks;
     using LBL.Data;
     using LBL.Data.Models;
     using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
+
+    using static WebConstants;
 
     public static class ApplicationBuilderExtension
     {
         public static IApplicationBuilder PrepareDatabase (
            this IApplicationBuilder app)
         {
-            using var scopedServices = app.ApplicationServices.CreateScope();
+            using var serviceScope = app.ApplicationServices.CreateScope();
+            var services = serviceScope.ServiceProvider;
 
-            var data = scopedServices.ServiceProvider.GetService<LBLDbContext>();
+            MigrateDatabase(services);
 
-            data.Database.Migrate();
-
-            SeedRegions(data);
+            SeedRegions(services);
+            SeedAdministrator(services);
 
             return app;
         }
 
-        private static void SeedRegions(LBLDbContext data)
-        { 
-            if(data.Regions.Any())
+        private static void MigrateDatabase(IServiceProvider services)
+        {
+            var data = services.GetRequiredService<LBLDbContext>();
+
+            data.Database.Migrate();
+        }
+
+        private static void SeedRegions(IServiceProvider services)
+        {
+            var data = services.GetRequiredService<LBLDbContext>();
+            if (data.Regions.Any())
             {
                 return;
             }
@@ -57,5 +70,40 @@
 
             data.SaveChanges();
         }
+
+        private static void SeedAdministrator(IServiceProvider services)
+        {
+            var userManager = services.GetRequiredService<UserManager<User>>();
+            var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+
+            Task
+                .Run(async () =>
+                {
+                    if (await roleManager.RoleExistsAsync(AdministratorRoleName))
+                    {
+                        return;
+                    }
+
+                    var role = new IdentityRole { Name = AdministratorRoleName };
+
+                    await roleManager.CreateAsync(role);
+
+                    const string adminEmail = "admin@admin.com";
+                    const string adminPassword = "admin12";
+
+                    var user = new User
+                    {
+                        Email = adminEmail,
+                        UserName = "Admin"
+                    };
+
+                    await userManager.CreateAsync(user, adminPassword);
+
+                    await userManager.AddToRoleAsync(user, role.Name);
+                })
+                .GetAwaiter()
+                .GetResult();
+        }
+
     }
 }
