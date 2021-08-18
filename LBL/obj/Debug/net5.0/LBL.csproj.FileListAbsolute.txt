@@ -871,3 +871,4 @@ D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Areas\Identity\Pages\A
 D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\_ManageNav.cshtml.g.cs
 D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\_ViewImports.cshtml.g.cs
 D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\ExternalLogin.cshtml.g.cs
+D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Info\Contacts.cshtml.g.cs

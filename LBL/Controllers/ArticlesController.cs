@@ -56,7 +56,11 @@
 
             };
 
+            var totalArticles = articlesQuery.Count();
+
             var articles = articlesQuery
+                .Skip((query.CurrentPage - 1)*AllArticlesQueryModel.ArticlesPerPage)
+                .Take(AllArticlesQueryModel.ArticlesPerPage)
                 .Select(c => new ArticleListingViewModel
                 {
                     Id = c.Id,
@@ -81,6 +85,7 @@
 
             return View(new AllArticlesQueryModel
             {
+                TotalArticles = totalArticles,
                 ManyCategories = articleCategories,
                 Articles = articles,
                 SearchTerm = query.SearchTerm,
@@ -100,7 +105,7 @@
                 this.ModelState.AddModelError(nameof(article.CategoryId), "This region doesn't exist");
             }
 
-            if (!ModelState.IsValid)
+            if (ModelState.ErrorCount>1)
             {
                 article.Categories = this.GetArticleCategories();
 
