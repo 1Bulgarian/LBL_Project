@@ -25,26 +25,38 @@
             Categories = this.GetArticleCategories()
         });
 
-        public IActionResult All(int OneCategory, string searchTerm)
+        public IActionResult All([FromQuery]AllArticlesQueryModel query)
+            //int OneCategory, 
+            //string SearchTerm, 
+            //ArticleSorting Sorting
+            //)
         {
             var articlesQuery = this.data.Articles.AsQueryable();
 
-            if(OneCategory != 0)
+            if(!string.IsNullOrWhiteSpace(query.OneCategory))
             {
                 articlesQuery = articlesQuery
-                    .Where(c => c.CategoryId== OneCategory);
+                    .Where(c => c.Category.Name== query.OneCategory);
             }
 
-            if(!string.IsNullOrWhiteSpace(searchTerm))
+            if(!string.IsNullOrWhiteSpace(query.SearchTerm))
             {
                 articlesQuery = articlesQuery.Where(c =>
-                    c.Title.ToLower().Contains(searchTerm.ToLower()) ||
-                    c.Description.ToLower().Contains(searchTerm.ToLower()) ||
-                    c.Category.Name.ToLower().Contains(searchTerm.ToLower()));
+                    c.Title.ToLower().Contains(query.SearchTerm.ToLower()) ||
+                    c.Description.ToLower().Contains(query.SearchTerm.ToLower()) ||
+                    c.Category.Name.ToLower().Contains(query.SearchTerm.ToLower()));
             }
 
+            articlesQuery = query.Sorting switch
+            {
+                ArticleSorting.AtoZ => articlesQuery.OrderBy(c=>c.Title),
+                ArticleSorting.ZtoA => articlesQuery.OrderByDescending(c=>c.Title),
+                ArticleSorting.DatePublishedDesc => articlesQuery.OrderBy(c=>c.Id),
+                ArticleSorting.DatePublished or _=> articlesQuery.OrderByDescending(c=>c.Id)
+
+            };
+
             var articles = articlesQuery
-                .OrderByDescending(c => c.Id)
                 .Select(c => new ArticleListingViewModel
                 {
                     Id = c.Id,
@@ -71,7 +83,8 @@
             {
                 ManyCategories = articleCategories,
                 Articles = articles,
-                SearchTerm = searchTerm
+                SearchTerm = query.SearchTerm,
+                Sorting = query.Sorting
             });
         }
 
