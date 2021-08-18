@@ -1,6 +1,7 @@
 namespace LBL
 {
     using LBL.Data;
+    using LBL.Data.Models;
     using LBL.Infrastructure;
     using LBL.Services.Articles;
     using LBL.Services.Statistics;
@@ -28,13 +29,14 @@ namespace LBL
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services
-                .AddDefaultIdentity<IdentityUser>(options =>
+                .AddDefaultIdentity<User>(options =>
                 {
                     options.Password.RequireDigit = false;
                     options.Password.RequireLowercase = false;
                     options.Password.RequireNonAlphanumeric = false;
                     options.Password.RequireUppercase = false;
                 })
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<LBLDbContext>();
 
 
