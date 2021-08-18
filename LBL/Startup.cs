@@ -2,6 +2,7 @@ namespace LBL
 {
     using LBL.Data;
     using LBL.Infrastructure;
+    using LBL.Services.Articles;
     using LBL.Services.Statistics;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -44,6 +45,7 @@ namespace LBL
                 });
 
             services.AddTransient<IStatisticsService, StatisticsService>();
+            services.AddTransient<IArticleService, ArticleService>();
 
             services.AddAuthentication()
                 .AddGoogle(options =>

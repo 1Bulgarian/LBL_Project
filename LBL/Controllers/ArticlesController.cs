@@ -10,87 +10,41 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Authorization;
     using LBL.Infrastructure;
+    using LBL.Services.Articles;
 
     public class ArticlesController : Controller
     {
+        private readonly IArticleService articles;
         private readonly LBLDbContext data;
-
-
-        public ArticlesController(LBLDbContext data)
-            => this.data = data;
-
 
         public IActionResult Add() => View(new AddArticleFormModel
         {
             Categories = this.GetArticleCategories()
         });
 
-        public IActionResult All([FromQuery]AllArticlesQueryModel query)
-            //int OneCategory, 
-            //string SearchTerm, 
-            //ArticleSorting Sorting
-            //)
+        public ArticlesController(IArticleService articles, LBLDbContext data)
         {
-            var articlesQuery = this.data.Articles.AsQueryable();
 
-            if(!string.IsNullOrWhiteSpace(query.OneCategory))
-            {
-                articlesQuery = articlesQuery
-                    .Where(c => c.Category.Name== query.OneCategory);
-            }
+            this.articles = articles;
+            this.data = data;
+                
+        }
 
-            if(!string.IsNullOrWhiteSpace(query.SearchTerm))
-            {
-                articlesQuery = articlesQuery.Where(c =>
-                    c.Title.ToLower().Contains(query.SearchTerm.ToLower()) ||
-                    c.Description.ToLower().Contains(query.SearchTerm.ToLower()) ||
-                    c.Category.Name.ToLower().Contains(query.SearchTerm.ToLower()));
-            }
+        public IActionResult All([FromQuery] AllArticlesQueryModel query)
+        {
+            var queryResult = this.articles.All(
+                query.Category,
+                query.SearchTerm,
+                query.Sorting,
+                query.CurrentPage,
+                AllArticlesQueryModel.ArticlesPerPage);
 
-            articlesQuery = query.Sorting switch
-            {
-                ArticleSorting.AtoZ => articlesQuery.OrderBy(c=>c.Title),
-                ArticleSorting.ZtoA => articlesQuery.OrderByDescending(c=>c.Title),
-                ArticleSorting.DatePublishedDesc => articlesQuery.OrderBy(c=>c.Id),
-                ArticleSorting.DatePublished or _=> articlesQuery.OrderByDescending(c=>c.Id)
+            var articleCategories = this.articles.AllArticleCategories();
+            query.Categories = articleCategories;
+            query.TotalArticles = queryResult.TotalArticles;
+            query.Articles = queryResult.Articles;
 
-            };
-
-            var totalArticles = articlesQuery.Count();
-
-            var articles = articlesQuery
-                .Skip((query.CurrentPage - 1)*AllArticlesQueryModel.ArticlesPerPage)
-                .Take(AllArticlesQueryModel.ArticlesPerPage)
-                .Select(c => new ArticleListingViewModel
-                {
-                    Id = c.Id,
-                    Title = c.Title,
-                    Description = c.Description,
-                    Text = c.Text,
-                    Image = c.Image,
-                    Category = c.Category.Name,
-                    Author = c.AuthorId
-                })
-                .ToList();
-
-            var articleCategories = this.data
-            .Categories
-            .Select(c => new ArticleCategoriesViewModel
-            {
-                CategoryId = c.Id,
-                Name = c.Name
-            })
-            .ToList();
-
-
-            return View(new AllArticlesQueryModel
-            {
-                TotalArticles = totalArticles,
-                ManyCategories = articleCategories,
-                Articles = articles,
-                SearchTerm = query.SearchTerm,
-                Sorting = query.Sorting
-            });
+            return View(query);
         }
 
 

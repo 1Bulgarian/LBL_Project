@@ -34,8 +34,14 @@
             </div>
 
             <div class="form-group">
+                <label asp-for="Description"></label> (<span id="charcount">0 out of 175 characters</span>)
+                <textarea asp-for="Description" class="form-control" rows="5" onkeyup="charcountupdate(this.value)" placeholder="e.g. My article is about..."></textarea>
+            </div>
+            <span asp-validation-for="Description" class="small text-danger"></span>
+
+            <div class="form-group">
                 <label asp-for="Text"></label>
-                <textarea asp-for="Text" class="form-control" placeholder="e.g. My amazing article is about..." rows="3"></textarea>
+                <textarea asp-for="Text" class="form-control" rows="7" placeholder="e.g. In this article I will tell you why G2 is the best team..." rows="3"></textarea>
                 <span asp-validation-for="Text" class="small text-danger"></span>
             </div>
 
@@ -46,11 +52,6 @@
                 }
             </script>
 
-            <div class="form-group">
-                <label asp-for="Description"></label> (<span id="charcount">0 out of 175 characters</span>)
-                <textarea asp-for="Description" class="form-control" rows="3" onkeyup="charcountupdate(this.value)"></textarea>
-            </div>
-            <span asp-validation-for="Description" class="small text-danger"></span>
 
             <input class="btn btn-primary float-right" type="submit" value="Save" />
         </form>
