@@ -1,14 +1,15 @@
 ﻿namespace LBL.Models.Article
 {
+    using LBL.Services.Articles;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using static Data.DataConstants;
 
-    public class AddArticleFormModel
+    public class AddArticleFormModel : IArticleModel
     {
         [Required]
         [Display(Name = "Title")]
-        [StringLength(TeamFullNameMaxLenght, MinimumLength = TeamFullNameMinLenght)]
+        [StringLength(ArticleTitleMaximumLength, MinimumLength = ArticleMinimumLength)]
         public string Title { get; init; }
 
         [Required]
@@ -28,7 +29,5 @@
         public int CategoryId { get; init; }
 
         public IEnumerable<ArticleCategoriesViewModel> Categories { get; set; }
-
-        public string AuthorId { get; init; }
     }
 }

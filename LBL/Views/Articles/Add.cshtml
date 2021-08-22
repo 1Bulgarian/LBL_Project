@@ -1,7 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.Mvc;
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@using LBL.Data.Models 
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
 @model AddArticleFormModel
 @{ ViewData["Title"] = "Add Article"; }
 @if (SignInManager.IsSignedIn(User))

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Programming\\LBL_Project\\LBL\\LBL\\LBL.csproj": {}
+    "D:\\Programming\\LBL_Project2\\LBL\\LBL\\LBL.csproj": {}
   },
   "projects": {
-    "D:\\Programming\\LBL_Project\\LBL\\LBL\\LBL.csproj": {
+    "D:\\Programming\\LBL_Project2\\LBL\\LBL\\LBL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programming\\LBL_Project\\LBL\\LBL\\LBL.csproj",
+        "projectUniqueName": "D:\\Programming\\LBL_Project2\\LBL\\LBL\\LBL.csproj",
         "projectName": "LBL",
-        "projectPath": "D:\\Programming\\LBL_Project\\LBL\\LBL\\LBL.csproj",
+        "projectPath": "D:\\Programming\\LBL_Project2\\LBL\\LBL\\LBL.csproj",
         "packagesPath": "C:\\Users\\1bulg\\.nuget\\packages\\",
-        "outputPath": "D:\\Programming\\LBL_Project\\LBL\\LBL\\obj\\",
+        "outputPath": "D:\\Programming\\LBL_Project2\\LBL\\LBL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\1bulg\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
             "Microsoft.AspNet.Mvc": {
               "target": "Package",
               "version": "[5.2.7, )"

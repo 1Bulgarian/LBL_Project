@@ -11,23 +11,24 @@
     using Microsoft.AspNetCore.Authorization;
     using LBL.Infrastructure;
     using LBL.Services.Articles;
+    using LBL.Services.Columnists;
+
+    using static WebConstants;
 
     public class ArticlesController : Controller
     {
         private readonly IArticleService articles;
+        private readonly IColumnistService columnists;
         private readonly LBLDbContext data;
 
-        public IActionResult Add() => View(new AddArticleFormModel
+        public ArticlesController(
+            IArticleService articles,
+            IColumnistService columnists,
+            LBLDbContext data)
         {
-            Categories = this.GetArticleCategories()
-        });
-
-        public ArticlesController(IArticleService articles, LBLDbContext data)
-        {
-
+            this.columnists = columnists;
             this.articles = articles;
             this.data = data;
-                
         }
 
         public IActionResult All([FromQuery] AllArticlesQueryModel query)
@@ -40,6 +41,7 @@
                 AllArticlesQueryModel.ArticlesPerPage);
 
             var articleCategories = this.articles.AllArticleCategories();
+
             query.Categories = articleCategories;
             query.TotalArticles = queryResult.TotalArticles;
             query.Articles = queryResult.Articles;
@@ -47,12 +49,46 @@
             return View(query);
         }
 
+        public IActionResult Details(int id)
+        {
+            var article = this.articles.Details(id);
+
+            return View(article);
+        }
+
+        [Authorize]
+        public IActionResult MyArticles()
+        {
+            var myArticles = this.articles.ByAuthor(this.User.GetId());
+
+            return View(myArticles);
+        }
+
+        [Authorize]
+        public IActionResult Add()
+        {
+            if(!this.columnists.IsColumnist(this.User.GetId()))
+            {
+                return RedirectToAction(nameof(ColumnistsController.Become), "Columnists");
+            }
+
+            return View(new AddArticleFormModel
+            {
+                Categories = this.GetArticleCategories()
+            });
+        }
 
         [HttpPost]
         [Authorize]
         public IActionResult Add(AddArticleFormModel article)
         {
+            var authorId = this.columnists.IdByUser(this.User.GetId());
             var userId = this.User.GetId();
+
+            if(authorId==0)
+            {
+                return RedirectToAction(nameof(ColumnistsController.Become), "Columnists");
+            }
 
             if (this.data.Regions.Any(c => c.Id == article.CategoryId))
             {
@@ -66,22 +102,17 @@
                 return View(article);
             }
 
-            var UserId = User.GetId();
+            var articleId = this.articles.Create(
+                    article.Title,
+                    article.Description,
+                    article.Text,
+                    article.Image,
+                    article.CategoryId,
+                    authorId
+                );
+            TempData[GlobalMessageKey] = "Your article has been added.";
 
-            var articleData = new Article
-            {
-                Title = article.Title,
-                Text = article.Text,
-                Description = article.Description,
-                Image = article.Image,
-                CategoryId = article.CategoryId,
-                AuthorId = UserId
-            };
-
-            this.data.Articles.Add(articleData);
-            this.data.SaveChanges();
-
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction(nameof(All));
         }
 
 

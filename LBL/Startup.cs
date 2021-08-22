@@ -4,6 +4,7 @@ namespace LBL
     using LBL.Data.Models;
     using LBL.Infrastructure;
     using LBL.Services.Articles;
+    using LBL.Services.Columnists;
     using LBL.Services.Statistics;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -39,6 +40,7 @@ namespace LBL
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<LBLDbContext>();
 
+            services.AddAutoMapper(typeof(Startup));
 
             services
                 .AddControllersWithViews(options =>
@@ -48,6 +50,7 @@ namespace LBL
 
             services.AddTransient<IStatisticsService, StatisticsService>();
             services.AddTransient<IArticleService, ArticleService>();
+            services.AddTransient<IColumnistService, ColumnistService>();
 
             services.AddAuthentication()
                 .AddGoogle(options =>

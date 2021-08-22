@@ -10,7 +10,7 @@
         public int Id { get; init; }
 
         [Required]
-        [MinLength(ArticleTitleMinimumLength)]
+        [StringLength(ArticleTitleMaximumLength, MinimumLength = ArticleTitleMinimumLength)]
         public string Title { get; set; }
 
         [Required]
@@ -21,13 +21,15 @@
         public Category Category { get; set; }
 
         [Required]
-        public string Description { get; init; }
+        public string Description { get; set; }
 
         [Required]
         public int CategoryId { get; set; }
 
-        public string Image { get; init; }
+        public string Image { get; set; }
 
-        public string AuthorId { get; init; }
+        public int AuthorId { get; init; }
+
+        public Columnist Author { get; init; }
     }
 }

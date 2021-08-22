@@ -4,7 +4,7 @@
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
 
-    public class LBLDbContext : IdentityDbContext
+    public class LBLDbContext : IdentityDbContext<User>
     {
         public LBLDbContext(DbContextOptions<LBLDbContext> options)
             : base(options)
@@ -20,6 +20,8 @@
         public DbSet<Category> Categories { get; init; }
 
         public DbSet<StaffMember> StaffMembers { get; init; }
+
+        public DbSet<Columnist> Columnists { get; init; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -37,10 +39,22 @@
                 .HasForeignKey(r => r.CategoryId)
                 .OnDelete(DeleteBehavior.Restrict);
             builder
+                .Entity<Article>()
+                .HasOne(r => r.Author)
+                .WithMany(c => c.Articles)
+                .HasForeignKey(c => c.AuthorId)
+                .OnDelete(DeleteBehavior.Restrict);
+            builder
                 .Entity<StaffMember>()
                 .HasOne(c => c.Team)
                 .WithMany(c => c.Members)
                 .HasForeignKey(c => c.TeamId)
+                .OnDelete(DeleteBehavior.Restrict);
+            builder
+                .Entity<Columnist>()
+                .HasOne<User>()
+                .WithOne()
+                .HasForeignKey<Columnist>(d => d.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             base.OnModelCreating(builder);

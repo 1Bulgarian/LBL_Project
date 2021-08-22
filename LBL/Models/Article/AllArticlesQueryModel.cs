@@ -25,6 +25,8 @@
 
         public IEnumerable<ArticleServiceModel> Articles { get; set; }
 
+        public IEnumerable<ArticleDetailsServiceModel> Author { get; set; }
+
         public IEnumerable<string> Categories { get; set; }
 
     }

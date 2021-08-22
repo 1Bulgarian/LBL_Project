@@ -107,11 +107,11 @@
 </div>
 
 
-<div class="row justify-content-center">
+<div class="row justify-content-center col-12">
     @foreach (var article in Model.Articles)
     {
-    <a href="" style="text-decoration:none; color:black;">
-        <div class="row border m-2" style="width:60rem; height:13rem;">
+    <a asp-action="Details" asp-route-Id="@article.Id" style="text-decoration:none; color:black;">
+        <div class="row border m-2 " style="width:60rem; height:13rem;">
             <span class="col-4">
                 <div class="text-center align-content-between " style="height:12rem; width:auto;">
                     <img src="@article.Image" style="max-height:11rem; max-width:12rem; vertical-align:bottom;" class="rounded card-img-top m-3" alt="@article.Title">

@@ -1,0 +1,12 @@
+﻿@model IEnumerable<ArticleServiceModel>
+
+@{
+    ViewBag.Title = "My Articles";
+}
+
+@if (!Model.Any())
+{
+    <h2 class="text-center">You do not have any articles yet!</h2>
+}
+
+<partial name="_ArticlesPartial" model="@Model" />
