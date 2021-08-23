@@ -14,7 +14,6 @@
         public string Title { get; set; }
 
         [Required]
-        [MinLength(ArticleMinimumLength)]
         public string Text { get; set; }
 
         [Required]

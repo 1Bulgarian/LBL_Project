@@ -1,4 +1,5 @@
-﻿@model LBL.Services.Articles.ArticleDetailsServiceModel
+﻿@using System.Web.Mvc
+@model LBL.Services.Articles.ArticleDetailsServiceModel
 
 @{ ViewData["Title"] = Model.Title; }
 
@@ -7,12 +8,16 @@
 </div>
 
 <div>
-    <p>@Model.Text</p>
-    <p>Image url: @Model.Image</p>
+    <p>
+    @{ 
+        <span style="white-space: pre-wrap">@Model.Text</span>
+    }
+    </p>
+    @*<p>Image url: @Model.Image</p>
     <p>Author: @Model.FirstName</p>
     <p>Author: @Model.LastName</p>
     <p>Author Id: @Model.AuthorId</p>
     <p>Category name: @Model.CategoryName</p>
     <p>Description: @Model.Description</p>
-    <p>UserId: @Model.UserId</p>
+    <p>UserId: @Model.UserId</p>*@
 </div>

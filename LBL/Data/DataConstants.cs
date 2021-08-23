@@ -23,8 +23,8 @@
 
         //Article stuff
         public const int ArticleMinimumLength = 10;
-        public const int ArticleTitleMinimumLength = 10;
-        public const int ArticleTitleMaximumLength = 40;
+        public const int ArticleTitleMinimumLength = 20;
+        public const int ArticleTitleMaximumLength = 50;
 
         public const int DescriptionMinimumLength = 2;
         public const int DescriptionMaximumLength = 175;

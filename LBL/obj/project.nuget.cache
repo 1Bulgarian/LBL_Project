@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "usXtsptjTjjCOLzB/5f0Lyz5zSvSAKStR013sTxkELRSMPTVHW1S0fpPtVkn5QH0h62E7C7wIRMyxDz8ZtoSCQ==",
+  "dgSpecHash": "dwZsDja86MCPcoQTohV2gQ3WqpEKqynZes9l50ZNbkw+UyOJ01URCtBqAOyUoxiA6NSUSDH9Mspa41txuNaspQ==",
   "success": true,
-  "projectFilePath": "D:\\Programming\\LBL_Project2\\LBL\\LBL\\LBL.csproj",
+  "projectFilePath": "D:\\Programming\\LBL_Project\\LBL\\LBL\\LBL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\1bulg\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\1bulg\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
