@@ -32,9 +32,18 @@
             <div class="form-group">
                 <label asp-for="RegionId">Region</label>
                 <select asp-for="RegionId" class="form-control">
+                    <option disabled>Major Regions</option>
                     @foreach (var region in Model.CategoriesRegions)
                     {
                         <option value="@region.Id">@region.Name</option>
+                        if (region.Name == "VCS")
+                        {
+                            <option disabled>Academy Teams</option>
+                        }
+                        else if(region.Name == "LDL") 
+                        {
+                            <option disabled>European Regional Leagues (ERLs)</option>
+                        }
                     }
                 </select>
             </div>
