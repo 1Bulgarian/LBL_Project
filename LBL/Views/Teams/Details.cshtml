@@ -1,0 +1,122 @@
+﻿@model TeamDetailsServiceModel
+
+@{
+    ViewBag.Title = Model.TeamFullName;
+}
+
+<div class="row justify-content-center">
+    <h2>[@Model.TeamTagName] @Model.TeamFullName</h2>
+</div>
+<table class="col-12 text-center">
+    <tr>
+
+        <td class="col-4">
+            <img src="@Model.LogoURL" alt="@Model.TeamFullName" /><br/>
+            <p><b>@Model.TeamFullName</b></p>
+        </td>
+
+        <td class="col-9">
+            <textarea readonly rows="8" cols="80" style="resize:none; border:none;">
+                @Model.Description
+            </textarea>
+        </td>
+
+    </tr>
+</table>
+
+<div id="accordion">
+    <div class="card">
+        @*Header 1*@
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Players
+                </button>
+            </h5>
+        </div>
+        @*Collapse 1*@
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body row justify-content-center">
+                @{int i = 0;}
+                @foreach (var player in Model.StaffMembers)
+                {
+                    i++;
+                    if (i == 6) break;
+
+                    <div class="card" style="width: 13rem;">
+                        <img class="card-img-top" src="@player.ImageURL" alt="@player.IGN">
+                        <div class="card-body text-center">
+                            <p class="card-text">@player.FirstName @player.LastName</p>
+                            <p><b>@player.IGN</b></p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        @*Header 2*@
+        <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Substitutes
+                </button>
+            </h5>
+        </div>
+        @*Collapse 2*@
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body row">
+                @foreach (var player in Model.StaffMembers)
+                {
+                    if (player.Position == "Substitute")
+                    {
+                        <div class="card" style="width: 13rem;">
+                            <img class="card-img-top" src="@player.ImageURL" alt="@player.IGN">
+                            <div class="card-body text-center">
+                                <p class="card-text">@player.FirstName @player.LastName</p>
+                                <p><b>@player.IGN</b></p>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        @*Header 3*@
+        <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
+                    Coaching staff
+                </button>
+            </h5>
+        </div>
+        @*Collapse 3*@
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body row">
+                @foreach (var player in Model.StaffMembers)
+                {
+                    if (player.Position == "Head Coach" ||
+                        player.Position == "Strategic Coach" ||
+                        player.Position == "Assistant Coach" ||
+                        player.Position == "Coach" ||
+                        player.Position == "Head Analyst" ||
+                        player.Position =="Remote Analyst" ||
+                        player.Position =="Analyst" ||
+                        player.Position =="Data Engineer" ||
+                        player.Position =="Streamer" ||
+                        player.Position == "Owner")
+                    {
+                        <div class="card" style="width: 13rem;">
+                            <img class="card-img-top" src="@player.ImageURL" alt="@player.IGN">
+                            <div class="card-body text-center">
+                                <p class="card-text">@player.FirstName @player.LastName</p>
+                                <p><b>@player.IGN</b></p>
+                                <p>Position: @player.Position</p>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>

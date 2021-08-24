@@ -1355,3 +1355,5 @@ D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Teams\Details.cs
 D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Teams\_TeamsPartial.cshtml.g.cs
 D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Teams\_TeamFormPartial.cshtml.g.cs
 D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Teams\Edit.cshtml.g.cs
+D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Areas\Admin\Views\Teams\Index.cshtml.g.cs
+D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
