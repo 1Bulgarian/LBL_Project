@@ -1354,3 +1354,4 @@ D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Columnists\Becom
 D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Teams\Details.cshtml.g.cs
 D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Teams\_TeamsPartial.cshtml.g.cs
 D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Teams\_TeamFormPartial.cshtml.g.cs
+D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Teams\Edit.cshtml.g.cs

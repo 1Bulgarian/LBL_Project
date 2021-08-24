@@ -11,16 +11,21 @@
     using Microsoft.AspNetCore.Mvc;
 
     using static WebConstants;
+    using LBL.Infrastructure;
+    using AutoMapper;
+    using Microsoft.AspNetCore.Authorization;
 
     public class TeamsController : Controller
     {
         private readonly LBLDbContext data;
         private readonly ITeamService teams;
+        private readonly IMapper mapper;
 
-        public TeamsController(LBLDbContext data, ITeamService teams)
+        public TeamsController(LBLDbContext data, ITeamService teams, IMapper mapper)
         {
             this.data = data;
             this.teams = teams;
+            this.mapper = mapper;
         }
 
         public IActionResult All([FromQuery] AllTeamsQueryModel query)
@@ -67,7 +72,7 @@
                 team.TeamFullName,
                 team.TeamTagName,
                 team.Description,
-                team.Logo,
+                team.LogoURL,
                 team.Tier,
                 team.RegionId);
 
@@ -88,6 +93,60 @@
 
             return View(team);
         }
+
+        public IActionResult Edit(int id)
+        {
+            var userId = this.User.GetId();
+
+            //if(!User.IsAdmin())
+            //{
+            //    return RedirectToAction("Teams", "All");
+            //}
+
+            var team = this.teams.Details(id);
+
+            var teamForm = this.mapper.Map<TeamFormModel>(team);
+
+            teamForm.CategoriesRegions = this.teams.AllRegions();
+
+            return View(teamForm);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int id, TeamFormModel team)
+        {
+
+            if(!this.teams.RegionExists(team.RegionId))
+            {
+                this.ModelState.AddModelError(nameof(team.RegionId), "Region doesn't exist!");
+            }
+
+            if(ModelState.ErrorCount > 1)
+            {
+                team.CategoriesRegions = this.teams.AllRegions();
+
+                return View(team);
+            }
+
+            var edited = this.teams.Edit(
+                id,
+                team.TeamFullName,
+                team.TeamTagName,
+                team.Description,
+                team.LogoURL,
+                team.Tier,
+                team.RegionId);
+
+            if(!edited)
+            {
+                return BadRequest();
+            }
+
+            TempData[GlobalMessageKey] = $"The team was edited.";
+
+            return RedirectToAction(nameof(Details), new { id, information = team.GetInformation() });
+        }
+
 
         private IEnumerable<TeamRegionViewModel> GetRegionCategories()
             => this.data
