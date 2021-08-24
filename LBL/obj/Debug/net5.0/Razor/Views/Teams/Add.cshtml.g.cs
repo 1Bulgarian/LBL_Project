@@ -77,13 +77,20 @@ using LBL.Services.Teams.Models;
 #nullable disable
 #nullable restore
 #line 10 "D:\Programming\LBL_Project\LBL\LBL\Views\_ViewImports.cshtml"
+using LBL.Services.Columnists;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 11 "D:\Programming\LBL_Project\LBL\LBL\Views\_ViewImports.cshtml"
 using LBL.Infrastructure.Extensions;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"55e78f0ab0c3bec50afe8f841b9ffc6400061064", @"/Views/Teams/Add.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f64f7e7aeb21fef5537d40fe6c42b2d530d349a5", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7f402e3260ed7529333983b41ca6f7f6f5d6be09", @"/Views/_ViewImports.cshtml")]
     public class Views_Teams_Add : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<TeamFormModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("name", "_TeamFormPartial", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -121,7 +128,7 @@ using LBL.Infrastructure.Extensions;
 #line hidden
 #nullable disable
             WriteLiteral("\n\n<div class=\"row\">\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "55e78f0ab0c3bec50afe8f841b9ffc64000610644895", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "55e78f0ab0c3bec50afe8f841b9ffc64000610645069", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();

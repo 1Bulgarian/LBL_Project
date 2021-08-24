@@ -157,5 +157,12 @@
             .ProjectTo<ArticleServiceModel>(this.mapper)
             .ToList();
 
+        public IEnumerable<ArticleAuthorServiceModel> AuthorNames(int authorId)
+            => this.data
+            .Columnists
+            .Where(c => c.Id == authorId)
+            .ProjectTo<ArticleAuthorServiceModel>(this.mapper)
+            .ToList();
+
     }
 }

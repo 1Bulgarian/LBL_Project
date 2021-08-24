@@ -12,5 +12,20 @@ namespace LBL.Controllers
         {
             return View();
         }
+
+        public IActionResult WhatisLoL()
+        {
+            return View();
+        }
+
+        public IActionResult LoLCompetitive()
+        {
+            return View();
+        }
+
+        public IActionResult BulgariansInLoL()
+        {
+            return View();
+        }
     }
 }

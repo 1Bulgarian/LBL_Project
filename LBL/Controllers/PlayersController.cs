@@ -4,7 +4,9 @@
     using System.Linq;
     using LBL.Data;
     using LBL.Data.Models;
+    using LBL.Infrastructure;
     using LBL.Models.Players;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
     public class PlayersController : Controller
@@ -14,12 +16,21 @@
         public PlayersController(LBLDbContext data)
             => this.data = data;
 
-        public IActionResult Add() => View(new AddPlayerFormModel
+        [Authorize]
+        public IActionResult Add()
         {
-            StaffsTeams = this.GetPlayersTeam()
-        });
+            if (!this.User.IsAdmin())
+            {
+                return RedirectToAction("All", "Teams");
+            }
+            return View(new AddPlayerFormModel
+            {
+                StaffsTeams = this.GetPlayersTeam()
+            });
+        }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Add(AddPlayerFormModel player)
         {
             if (this.data.Teams.Any(c => c.Id == player.TeamId))

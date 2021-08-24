@@ -53,6 +53,8 @@
         {
             var article = this.articles.Details(id);
 
+            article.AuthorNames = this.articles.AuthorNames(article.AuthorId);
+
             return View(article);
         }
 

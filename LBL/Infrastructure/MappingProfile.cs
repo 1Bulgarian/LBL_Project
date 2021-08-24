@@ -13,6 +13,7 @@ namespace LBL.Infrastructure
         {
             //Articles
             this.CreateMap<Category, ArticleCategoriesServiceModel>();
+            this.CreateMap<Columnist, ArticleAuthorServiceModel>();
 
             this.CreateMap<ArticleDetailsServiceModel, AddArticleFormModel>();
 

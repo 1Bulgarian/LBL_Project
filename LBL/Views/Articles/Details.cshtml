@@ -13,11 +13,12 @@
         <span style="white-space: pre-wrap">@Model.Text</span>
     }
     </p>
-    @*<p>Image url: @Model.Image</p>
-    <p>Author: @Model.FirstName</p>
-    <p>Author: @Model.LastName</p>
-    <p>Author Id: @Model.AuthorId</p>
-    <p>Category name: @Model.CategoryName</p>
-    <p>Description: @Model.Description</p>
-    <p>UserId: @Model.UserId</p>*@
+
+    <p>Author: <b>
+    @foreach (var name in Model.AuthorNames)
+    {
+        @(name.FirstName + " " + name.LastName)
+    }
+</b>
+    </p>
 </div>

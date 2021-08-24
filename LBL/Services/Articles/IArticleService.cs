@@ -39,6 +39,8 @@
 
         IEnumerable<ArticleCategoriesServiceModel> AllCategories();
 
+        IEnumerable<ArticleAuthorServiceModel> AuthorNames(int authorId);
+
         bool CategoryExists(int categoryId);
 
         bool IsByColumnist(int articleId, int authorId);

@@ -44,9 +44,15 @@
 
             return View(query);
         }
-              
+        
+        [Authorize]
         public IActionResult Add()
         {
+            if(!this.User.IsAdmin())
+            {
+                return RedirectToAction("All", "Teams");
+            }
+
             return View(new TeamFormModel
             {
                 CategoriesRegions = this.teams.AllRegions()
@@ -54,6 +60,7 @@
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Add(TeamFormModel team)
         {
             if(!this.teams.RegionExists(team.RegionId))

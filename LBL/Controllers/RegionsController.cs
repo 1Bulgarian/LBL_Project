@@ -2,7 +2,9 @@
 {
     using LBL.Data;
     using LBL.Data.Models;
+    using LBL.Infrastructure;
     using LBL.Models.Regions;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using System.Linq;
 
@@ -13,9 +15,18 @@
         public RegionsController(LBLDbContext data)
             => this.data = data;
 
-        public IActionResult Add() => View(new AddRegionFormModel());
+        [Authorize]
+        public IActionResult Add()
+        {
+            if (!this.User.IsAdmin())
+            {
+                return RedirectToAction("All", "Teams");
+            }
+            return View(new AddRegionFormModel());
+        }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Add(AddRegionFormModel region)
         {
 
