@@ -5,7 +5,13 @@
 }
 
 <div class="row justify-content-center">
-    <h2>[@Model.TeamTagName] @Model.TeamFullName</h2>
+    <h2>
+        [@Model.TeamTagName] @Model.TeamFullName
+
+    @if(User.IsAdmin()) {
+        <a asp-controller="Teams" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">✍️</a>
+    }
+    </h2>
 </div>
 <table class="col-12 text-center">
     <tr>

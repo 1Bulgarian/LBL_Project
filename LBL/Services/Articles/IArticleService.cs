@@ -15,7 +15,7 @@
 
         IEnumerable<string> AllArticleCategories();
 
-        ArticleDetailsServiceModel Details(int articleId);
+        ArticleDetailsServiceModel Details(int id);
 
         ArticleDetailsServiceModel AuthorName(int authorId);
 

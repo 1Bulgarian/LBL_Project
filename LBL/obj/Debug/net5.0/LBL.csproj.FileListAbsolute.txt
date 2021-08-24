@@ -1357,3 +1357,6 @@ D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Teams\_TeamFormP
 D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Teams\Edit.cshtml.g.cs
 D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Areas\Admin\Views\Teams\Index.cshtml.g.cs
 D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
+D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Info\BulgariansInLoL.cshtml.g.cs
+D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Info\LoLCompetitive.cshtml.g.cs
+D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Info\WhatisLoL.cshtml.g.cs

@@ -67,10 +67,10 @@
             };
         }
 
-        public ArticleDetailsServiceModel Details(int articleId)
+        public ArticleDetailsServiceModel Details(int id)
             => this.data
             .Articles
-            .Where(c => c.Id == articleId)
+            .Where(c => c.Id == id)
             .ProjectTo<ArticleDetailsServiceModel>(this.mapper)
             .FirstOrDefault();
 

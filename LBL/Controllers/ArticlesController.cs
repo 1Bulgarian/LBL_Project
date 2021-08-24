@@ -14,6 +14,7 @@
     using LBL.Services.Columnists;
 
     using static WebConstants;
+    using LBL.Infrastructure.Extensions;
 
     public class ArticlesController : Controller
     {
@@ -49,9 +50,14 @@
             return View(query);
         }
 
-        public IActionResult Details(int id)
+        public IActionResult Details(int id, string information)
         {
             var article = this.articles.Details(id);
+
+            if (information != article.GetArticleInformation())
+            {
+                return BadRequest();
+            }
 
             article.AuthorNames = this.articles.AuthorNames(article.AuthorId);
 

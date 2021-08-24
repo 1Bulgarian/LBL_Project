@@ -3,7 +3,7 @@
 <div>
     @foreach(var article in Model)
     {
-    <a asp-action="Details" asp-route-Id="@article.Id" style="text-decoration:none; color:black;">
+    <a asp-controller="Articles" asp-action="Details" asp-route-Id="@article.Id" asp-route-information="@article.GetArticleInformation()" style="text-decoration:none; color:black;">
         <div class="row border m-2" style="width:60rem; height:13rem;">
             <span class="col-4">
                 <div class="text-center align-content-between " style="height:12rem; width:auto;">

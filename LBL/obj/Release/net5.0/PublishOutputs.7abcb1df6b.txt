@@ -40,6 +40,8 @@ D:\Programming\LBL_Project\LBL\LBL\obj\Release\net5.0\PubTmp\Out\appsettings.jso
 D:\Programming\LBL_Project\LBL\LBL\obj\Release\net5.0\PubTmp\Out\LBL.dll
 D:\Programming\LBL_Project\LBL\LBL\obj\Release\net5.0\PubTmp\Out\LBL.runtimeconfig.json
 D:\Programming\LBL_Project\LBL\LBL\obj\Release\net5.0\PubTmp\Out\LBL.pdb
+D:\Programming\LBL_Project\LBL\LBL\obj\Release\net5.0\PubTmp\Out\AutoMapper.dll
+D:\Programming\LBL_Project\LBL\LBL\obj\Release\net5.0\PubTmp\Out\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\Programming\LBL_Project\LBL\LBL\obj\Release\net5.0\PubTmp\Out\Humanizer.dll
 D:\Programming\LBL_Project\LBL\LBL\obj\Release\net5.0\PubTmp\Out\System.Web.Mvc.dll
 D:\Programming\LBL_Project\LBL\LBL\obj\Release\net5.0\PubTmp\Out\System.Web.Razor.dll
