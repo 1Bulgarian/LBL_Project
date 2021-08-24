@@ -91,6 +91,8 @@
                 return BadRequest();
             }
 
+            team.StaffMembers = this.teams.AllStaffMembers(id);
+
             return View(team);
         }
 

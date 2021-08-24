@@ -29,6 +29,7 @@ namespace LBL.Infrastructure
 
             //Teams
             this.CreateMap<Region, TeamRegionServiceModel>();
+            this.CreateMap<StaffMember, TeamStaffMemberServiceModel>();
 
             this.CreateMap<TeamDetailsServiceModel, TeamFormModel>();
 
