@@ -68,8 +68,22 @@ using LBL.Services.Articles;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 9 "D:\Programming\LBL_Project\LBL\LBL\Views\_ViewImports.cshtml"
+using LBL.Services.Teams.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 10 "D:\Programming\LBL_Project\LBL\LBL\Views\_ViewImports.cshtml"
+using LBL.Infrastructure.Extensions;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0aa07997cef09066f0c784721652eef4b38cfb35", @"/Views/Home/Privacy.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"90716c5094858e2233e50af7e0dc69695400852c", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f64f7e7aeb21fef5537d40fe6c42b2d530d349a5", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Privacy : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

@@ -2,70 +2,91 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using LBL.Infrastructure.Extensions;
     using LBL.Data;
     using LBL.Data.Models;
     using LBL.Models.Teams;
+    using LBL.Services.Teams;
+    using LBL.Services.Teams.Models;
     using Microsoft.AspNetCore.Mvc;
+
+    using static WebConstants;
 
     public class TeamsController : Controller
     {
         private readonly LBLDbContext data;
+        private readonly ITeamService teams;
 
-        public TeamsController(LBLDbContext data) 
-            => this.data = data;
-
-        public IActionResult Add() => View(new AddTeamFormModel
+        public TeamsController(LBLDbContext data, ITeamService teams)
         {
-            CategoriesRegions = this.GetRegionCategories()
-        });
+            this.data = data;
+            this.teams = teams;
+        }
 
-        public IActionResult All()
+        public IActionResult All([FromQuery] AllTeamsQueryModel query)
         {
-            var teams = this.data
-                .Teams
-                .OrderBy(c=>c.TeamTagName)
-                .Select(c => new TeamListViewModel
-                {
-                    Id = c.Id,
-                    Tag = c.TeamTagName,
-                    FullName = c.TeamFullName,
-                    LogoURL = c.LogoURL,
-                    Region = c.Region.ShortName
-                })
-                .ToList();
+            var queryResult = this.teams.All(
+                query.Region,
+                query.SearchTerm,
+                query.CurrentPage,
+                AllTeamsQueryModel.TeamsPerPage);
 
-            return View(teams);
+            var teamRegions = this.teams.GetAllRegions();
+
+            query.Regions = teamRegions;
+            query.TotalTeams = queryResult.TotalTeams;
+            query.Teams = queryResult.Teams;
+
+            return View(query);
         }
               
-        [HttpPost]
-        public IActionResult Add(AddTeamFormModel team)
+        public IActionResult Add()
         {
-            if(this.data.Regions.Any(c=>c.Id==team.RegionId))
+            return View(new TeamFormModel
             {
-                this.ModelState.AddModelError(nameof(team.RegionId), "This region doesn't exist");
+                CategoriesRegions = this.teams.AllRegions()
+            });
+        }
+
+        [HttpPost]
+        public IActionResult Add(TeamFormModel team)
+        {
+            if(!this.teams.RegionExists(team.RegionId))
+            {
+                this.ModelState.AddModelError(nameof(team.RegionId), "Region doesn't exist.");
             }
 
-            if(ModelState.ErrorCount>1)
+            if(ModelState.ErrorCount > 1)
             {
-                team.CategoriesRegions = this.GetRegionCategories();
+                team.CategoriesRegions = this.teams.AllRegions();
 
                 return View(team);
             }
 
-            var teamData = new Team
+            var teamId = this.teams.Create(
+                team.TeamFullName,
+                team.TeamTagName,
+                team.Description,
+                team.Logo,
+                team.Tier,
+                team.RegionId);
+
+            TempData[GlobalMessageKey] = "This team has been added to the database.";
+
+            return RedirectToAction(nameof(Details), new { id = teamId, information = team.GetInformation() });
+
+        }
+
+        public IActionResult Details(int id, string information)
+        {
+            var team = this.teams.Details(id);
+
+            if(information != team.GetInformation())
             {
-                TeamFullName = team.TeamFullName,
-                TeamTagName = team.TeamTagName,
-                Description = team.Description,
-                LogoURL = team.Logo,
-                RegionId = team.RegionId,
-                Tier = team.Tier
-            };
+                return BadRequest();
+            }
 
-            this.data.Teams.Add(teamData);
-            this.data.SaveChanges();
-
-            return RedirectToAction(nameof(All));
+            return View(team);
         }
 
         private IEnumerable<TeamRegionViewModel> GetRegionCategories()

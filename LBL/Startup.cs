@@ -6,6 +6,7 @@ namespace LBL
     using LBL.Services.Articles;
     using LBL.Services.Columnists;
     using LBL.Services.Statistics;
+    using LBL.Services.Teams;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
@@ -51,6 +52,7 @@ namespace LBL
             services.AddTransient<IStatisticsService, StatisticsService>();
             services.AddTransient<IArticleService, ArticleService>();
             services.AddTransient<IColumnistService, ColumnistService>();
+            services.AddTransient<ITeamService, TeamService>();
 
             services.AddAuthentication()
                 .AddGoogle(options =>

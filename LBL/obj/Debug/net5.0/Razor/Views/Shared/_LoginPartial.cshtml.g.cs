@@ -69,6 +69,20 @@ using LBL.Services.Articles;
 #line hidden
 #nullable disable
 #nullable restore
+#line 9 "D:\Programming\LBL_Project\LBL\LBL\Views\_ViewImports.cshtml"
+using LBL.Services.Teams.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 10 "D:\Programming\LBL_Project\LBL\LBL\Views\_ViewImports.cshtml"
+using LBL.Infrastructure.Extensions;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "D:\Programming\LBL_Project\LBL\LBL\Views\Shared\_LoginPartial.cshtml"
 using LBL.Data.Models;
 
@@ -83,7 +97,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"55cf11b6aa8e0379cf9554ceb535d00bda729581", @"/Views/Shared/_LoginPartial.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"90716c5094858e2233e50af7e0dc69695400852c", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f64f7e7aeb21fef5537d40fe6c42b2d530d349a5", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__LoginPartial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("nav-link text-dark"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -136,7 +150,7 @@ using Microsoft.AspNetCore.Identity;
             </button>
             <div class=""dropdown-menu"" aria-labelledby=""dropdownMenuButton"">
                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "55cf11b6aa8e0379cf9554ceb535d00bda7295819787", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "55cf11b6aa8e0379cf9554ceb535d00bda72958110142", async() => {
                 WriteLiteral("Add Region");
             }
             );
@@ -157,7 +171,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "55cf11b6aa8e0379cf9554ceb535d00bda72958111449", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "55cf11b6aa8e0379cf9554ceb535d00bda72958111805", async() => {
                 WriteLiteral("Add Team");
             }
             );
@@ -178,7 +192,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "55cf11b6aa8e0379cf9554ceb535d00bda72958113110", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "55cf11b6aa8e0379cf9554ceb535d00bda72958113466", async() => {
                 WriteLiteral("Add Staff Member");
             }
             );
@@ -211,7 +225,7 @@ using Microsoft.AspNetCore.Identity;
             </button>
             <div class=""dropdown-menu"" aria-labelledby=""dropdownMenuButton"">
                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "55cf11b6aa8e0379cf9554ceb535d00bda72958115166", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "55cf11b6aa8e0379cf9554ceb535d00bda72958115522", async() => {
                 WriteLiteral("Add Article");
             }
             );
@@ -232,7 +246,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "55cf11b6aa8e0379cf9554ceb535d00bda72958116830", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "55cf11b6aa8e0379cf9554ceb535d00bda72958117186", async() => {
                 WriteLiteral("My Articles");
             }
             );
@@ -270,7 +284,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
             WriteLiteral("\n            </button>\n            <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "55cf11b6aa8e0379cf9554ceb535d00bda72958119324", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "55cf11b6aa8e0379cf9554ceb535d00bda72958119680", async() => {
                 WriteLiteral("Profile Settings");
             }
             );
@@ -290,7 +304,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "55cf11b6aa8e0379cf9554ceb535d00bda72958120869", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "55cf11b6aa8e0379cf9554ceb535d00bda72958121225", async() => {
                 WriteLiteral("\n                    <button type=\"submit\" class=\"nav-link btn btn-link text-dark\">Logout</button>\n                ");
             }
             );
@@ -343,7 +357,7 @@ using Microsoft.AspNetCore.Identity;
             </button>
             <div class=""dropdown-menu"" aria-labelledby=""dropdownMenuButton"">
                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "55cf11b6aa8e0379cf9554ceb535d00bda72958124401", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "55cf11b6aa8e0379cf9554ceb535d00bda72958124757", async() => {
                 WriteLiteral("Register");
             }
             );
@@ -362,7 +376,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "55cf11b6aa8e0379cf9554ceb535d00bda72958125856", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "55cf11b6aa8e0379cf9554ceb535d00bda72958126212", async() => {
                 WriteLiteral("Login");
             }
             );

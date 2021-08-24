@@ -53,13 +53,14 @@
             }
 
             var maxPage = Math.Ceiling((double)Model.TotalArticles / AllArticlesQueryModel.ArticlesPerPage);
+            var shouldButtonBeDisabled = Model.CurrentPage == maxPage || !Model.Articles.Any();
         }
 
         <div class="row justify-content-center">
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
                     <li class="page-item">
-                        <a class="page-link @(Model.CurrentPage == 1 ? "disabled" : string.Empty)"
+                        <a class="page-link btn @(Model.CurrentPage == 1 ? "disabled" : string.Empty)"
                            aria-label="Previous"
                            asp-controller="Articles"
                            asp-action="All"
@@ -75,7 +76,7 @@
                     @for (int i = 1; i <= maxPage; i++)
                     {
                         <li class="page-item">
-                            <a class="page-link"
+                            <a class="page-link btn"
                                 asp-controller="Articles"
                                 asp-action="All"
                                 asp-route-currentPage="@i"
@@ -88,7 +89,7 @@
                     }
 
                     <li class="page-item">
-                        <a class="page-link" aria-label="Next"
+                        <a class="page-link btn @(shouldButtonBeDisabled ? "disabled" : string.Empty)" aria-label="Next"
                            asp-controller="Articles"
                            asp-action="All"
                            asp-route-currentPage="@(Model.CurrentPage + 1)"

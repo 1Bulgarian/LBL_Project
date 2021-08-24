@@ -1351,3 +1351,6 @@ D:\Programming\LBL_Project2\LBL\LBL\obj\Debug\net5.0\Razor\Views\Articles\_Artic
 D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Articles\MyArticles.cshtml.g.cs
 D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Articles\_ArticlesPartial.cshtml.g.cs
 D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Columnists\Become.cshtml.g.cs
+D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Teams\Details.cshtml.g.cs
+D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Teams\_TeamsPartial.cshtml.g.cs
+D:\Programming\LBL_Project\LBL\LBL\obj\Debug\net5.0\Razor\Views\Teams\_TeamFormPartial.cshtml.g.cs
