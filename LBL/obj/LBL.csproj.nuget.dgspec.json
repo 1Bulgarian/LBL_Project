@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Programming\\LBL_Project\\LBL\\LBL\\LBL.csproj": {}
+    "G:\\MinecraftMods\\LBL_Project\\LBL\\LBL.csproj": {}
   },
   "projects": {
-    "D:\\Programming\\LBL_Project\\LBL\\LBL\\LBL.csproj": {
+    "G:\\MinecraftMods\\LBL_Project\\LBL\\LBL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programming\\LBL_Project\\LBL\\LBL\\LBL.csproj",
+        "projectUniqueName": "G:\\MinecraftMods\\LBL_Project\\LBL\\LBL.csproj",
         "projectName": "LBL",
-        "projectPath": "D:\\Programming\\LBL_Project\\LBL\\LBL\\LBL.csproj",
+        "projectPath": "G:\\MinecraftMods\\LBL_Project\\LBL\\LBL.csproj",
         "packagesPath": "C:\\Users\\1bulg\\.nuget\\packages\\",
-        "outputPath": "D:\\Programming\\LBL_Project\\LBL\\LBL\\obj\\",
+        "outputPath": "G:\\MinecraftMods\\LBL_Project\\LBL\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\1bulg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -97,7 +101,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -109,7 +114,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
